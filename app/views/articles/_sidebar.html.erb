@@ -4,7 +4,7 @@
     <i class="glyphicon glyphicon-plus"></i>New Article
    <% end %></li><hr>
    <li><h4>Latest Posts</h4></li>
-   <% @articles.first(3).reverse_each do |article| %>
+   <% @articles.last(3).reverse_each do |article| %>
    <li role="presentation"><%= link_to article.title, article %></li>
    <% end %>
 </div>
