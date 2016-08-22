@@ -1,0 +1,68 @@
+
+h2 h4 {
+    text-align: center;
+}
+
+
+.article-date,
+.article-title {
+    text-align:center;
+    margin-top: 10px;
+}
+
+.glyphicon {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.article-controls a:hover {
+    background: none;
+    color: #eee;
+    
+}
+
+.article-container {
+    background: #f8f8f8;
+    padding: 50px 33px;
+    border-bottom: 1px solid #f1f1f1;
+    border-radius: 4px;
+}
+
+.article-image {
+    clear: both;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.article-image img {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.article-image-main img {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.article-body {
+    margin: 40px 0;
+}
+
+.sidebar-container {
+    background: #f1f1f1;
+    float: right;
+    border-radius: 4px;
+}
+
+.show-article-button {
+    width: 100%;
+}
+
+
+
+@media only screen and (max-width : 768px) {
+    .sidebar-container {
+        background: #f1f1f1;
+        float: none;
+    }
+}

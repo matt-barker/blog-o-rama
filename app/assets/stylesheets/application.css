@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+body {
+    margin: 0 auto;
+    max-width: 1200px;
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 135%;
+}
+
+.icon-bar {
+    background: #000;
+}
+
+.navbar {
+    background: #ddd;
+}
