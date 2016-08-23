@@ -23,9 +23,15 @@ h2 h4 {
 
 .article-container {
     background: #f8f8f8;
-    padding: 50px 33px;
+    padding: 30px 33px 40px 33px;
     border-bottom: 1px solid #f1f1f1;
     border-radius: 4px;
+    box-shadow: 1px 1px 5px #ccc;
+    margin: 25px 0px 0px 0px;
+}
+
+.articles-list :last-child {
+    margin-bottom: 5px;
 }
 
 .article-image {
@@ -35,7 +41,7 @@ h2 h4 {
 }
 
 .article-image img {
-    width: 600px;
+    width: 550px;
     margin: 0 auto;
 }
 
@@ -45,20 +51,34 @@ h2 h4 {
 }
 
 .article-body {
-    margin: 40px 0;
+    margin-top: 40px;
 }
 
 .sidebar-container {
-    background: #f1f1f1;
+    background: #f8f8f8;
     float: right;
     border-radius: 4px;
+    box-shadow: 1px 1px 5px #ccc;
+    margin-top: 25px;
+    
 }
 
 .show-article-button {
     width: 100%;
 }
 
+.add-edit-form {
+    display: block;
+    margin: 0 25px;
+}
 
+.add-edit-form .field input, textarea {
+    width: 90%;
+}
+
+.add-edit-form .field textarea {
+    height: 130px;
+}
 
 @media only screen and (max-width : 768px) {
     .sidebar-container {

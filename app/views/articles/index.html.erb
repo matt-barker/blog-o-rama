@@ -1,13 +1,14 @@
 
-<div class="col-lg-12 intro-text">
+<div class="col-md-9 col-md-offset-1 intro-text">
   <p>
     Welcome to the blog-o-rama blog. This is the bloggiest blog that ever appeared
     in the blogosphere!  
   </p>
 </div>
 <%= render 'sidebar' %>
+<div class="articles-list">
   <% @articles.reverse_each do |article| %>
-    <div class="col-sm-12 col-md-10 article-container">
+    <div class="col-sm-12 col-md-9 col-md-offset-1 article-container">
        <div class="article-controls">
         <%= link_to edit_article_path(article) do %>
         <i class="glyphicon glyphicon-pencil"></i>
@@ -24,11 +25,12 @@
       <% end %>
       <p class="article-body"><%= article.body[0,255] %></p>
       <% if article.body.length > 255 %>
-      <p><%= button_to 'Read article', article, :type =>"button", :class =>"btn btn-default show-article-button", :method => :get %></p>
+      <p><%= button_to 'Continue reading article', article, :type =>"button", :class =>"btn btn-default show-article-button", :method => :get %></p>
       <% end %>
       <p>Author: <%= article.author %></p>
     </div>
   <% end %>
+  </div>
 <br>
 <p id="notice"><%= notice %></p>
 
