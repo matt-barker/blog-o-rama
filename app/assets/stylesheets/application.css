@@ -75,3 +75,12 @@ footer {
     background: #27ae60;
     color: #fff;
 }
+
+.dropdown-toggle {
+    background: none;
+    text-align: center;
+}
+
+.dropdown-toggle .glyphicon {
+    margin: 0;
+}

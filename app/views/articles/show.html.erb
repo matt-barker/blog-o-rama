@@ -2,14 +2,7 @@
 <%= render 'sidebar' %>
 <div class="col-sm-12 col-md-9 col-md-offset-1 article-container">
   <h2 class="article-title"><%= @article.title %></h2>
-  <span class="article-controls">
-    <%= link_to edit_article_path(@article) do %>
-    <i class="glyphicon glyphicon-pencil"></i>
-    <% end %>
-    <%= link_to @article, method: :delete, data: { confirm: 'Are you sure?' } do %>
-    <i class="glyphicon glyphicon-trash"></i>
-    <% end %>
-  </span>
+  <%= render 'article-controls', :article => @article %>
   <p class="article-date">Posted: <%= @article.date_posted %></p>
   <% if @article.has_image? %>
     <div class="article-image-main"><%= image_tag(@article.image_url, class:"img-responsive") %></div>

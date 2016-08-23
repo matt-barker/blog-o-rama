@@ -9,14 +9,7 @@
 <div class="articles-list">
   <% @articles.reverse_each do |article| %>
     <div class="col-sm-12 col-md-9 col-md-offset-1 article-container">
-       <div class="article-controls">
-        <%= link_to edit_article_path(article) do %>
-        <i class="glyphicon glyphicon-pencil"></i>
-        <% end %>
-        <%= link_to article, method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <i class="glyphicon glyphicon-trash"></i>
-        <% end %>
-      </div>
+      <%= render 'article-controls', :article => article%>
       <h2 class="article-title"><%= article.title %></h2>
      
       <p class="article-date">Posted: <%= article.date_posted %></p>
@@ -34,3 +27,6 @@
 <br>
 <p id="notice"><%= notice %></p>
 
+
+
+<!-- Single button -->
