@@ -1,14 +1,15 @@
 
 <%= render 'sidebar' %>
 <div class="col-sm-12 col-md-9 col-md-offset-1 article-container">
-  <h2 class="article-title"><%= @article.title %></h2>
   <%= render 'article-controls', :article => @article %>
+  <h2 class="article-title"><%= @article.title %></h2>
+  <hr>
   <p class="article-date">Posted: <%= @article.date_posted %></p>
   <% if @article.has_image? %>
     <div class="article-image-main"><%= image_tag(@article.image_url, class:"img-responsive") %></div>
   <% end %>
   <p class="article-body"><%= @article.body %></p>
-  <p>Author: <%= @article.author %></p>
+  <p><strong>Author: <%= @article.author %></strong></p>
   <p><%= button_to 'Back', articles_path, :type =>"button", :class =>"btn btn-default show-article-button", :method => :get %></p>
   </button>
   <hr>

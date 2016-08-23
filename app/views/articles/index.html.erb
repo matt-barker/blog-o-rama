@@ -11,7 +11,7 @@
     <div class="col-sm-12 col-md-9 col-md-offset-1 article-container">
       <%= render 'article-controls', :article => article%>
       <h2 class="article-title"><%= article.title %></h2>
-     
+      <hr>
       <p class="article-date">Posted: <%= article.date_posted %></p>
       <% if article.has_image? %>
       <div class="article-image"><%= image_tag(article.image_url, class:"img-responsive") %></div>
@@ -20,7 +20,7 @@
       <% if article.body.length > 255 %>
       <p><%= button_to 'Continue reading article', article, :type =>"button", :class =>"btn btn-default show-article-button", :method => :get %></p>
       <% end %>
-      <p>Author: <%= article.author %></p>
+      <p><strong>Author: <%= article.author %></strong></p>
     </div>
   <% end %>
   </div>
