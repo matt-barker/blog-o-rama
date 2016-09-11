@@ -32,13 +32,19 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Contact", static_pages_contact_path %></li>
+        <li><%= link_to "About", static_pages_about_path %></li>
       </ul>
     </div>
   </div>
 </nav>
 <div class="wrapper">
 <%= yield %>
-<%= render 'footer' %>
+<footer>
+    <div>
+        &copy Matt Barker 2016
+    </div>
+</footer>
 </div>
 </body>
 </html>
