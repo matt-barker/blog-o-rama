@@ -19,32 +19,53 @@
   
 </head>
 <body>
-<nav class="navbar">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-      <a class="navbar-brand" href="#">Blog-o-rama!</a>
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span> 
+        </button>
+        <a class="navbar-brand" href="#">Blog-o-rama!</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Contact", static_pages_contact_path %></li>
+          <li><%= link_to "About", static_pages_about_path %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li role="presentation" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              <i class="glyphicon glyphicon-user"></i><span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu hmenu">
+                <li><%= render 'devise/menu/registration_items' %></li>
+                <li><%= render 'devise/menu/login_items' %></li>
+              </ul>
+          </li>
+          <li>
+             <%= form_tag("/products/search", method: "get", class: "navbar-form navbar-right", role: "search") do %>
+          <div class="form-group">
+            <%= text_field_tag(:q, nil, class: "form-control", placeholder: "Search") %>
+          </div>
+          <%= submit_tag("Go", class: "btn btn-default") %>
+          <% end %>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Contact", static_pages_contact_path %></li>
-        <li><%= link_to "About", static_pages_about_path %></li>
-      </ul>
-    </div>
+  </nav>
+  <div class="wrapper">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+    <footer>
+      <div>
+          &copy Matt Barker 2016
+      </div>
+    </footer>
   </div>
-</nav>
-<div class="wrapper">
-<%= yield %>
-<footer>
-    <div>
-        &copy Matt Barker 2016
-    </div>
-</footer>
-</div>
 </body>
 </html>
