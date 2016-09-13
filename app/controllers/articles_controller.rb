@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
+    @user = current_user
   end
 
   # GET /articles/1
@@ -15,8 +16,8 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    before_filter :authenticate_user!
     @article = Article.new
+    @user = current_user
   end
 
   # GET /articles/1/edit
