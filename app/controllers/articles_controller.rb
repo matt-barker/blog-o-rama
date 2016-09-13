@@ -1,10 +1,21 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :except => [:show, :index]
+  
   
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    if params[:q]
+        @search_term = params[:q]
+        if Rails.env == "development"
+          @articles = Article.where("title LIKE ?", "%#{@search_term}%")
+        else
+          @articles = Article.where("title ilike ?", "%#{@search_term}%")
+        end
+      else
+        @articles = Article.all
+    end
     @user = current_user
   end
 
@@ -22,6 +33,10 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+  end
+
+  def search
+      
   end
 
   # POST /articles

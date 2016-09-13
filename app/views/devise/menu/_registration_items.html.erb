@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <li><%= @user.first_name %>&nbsp;<%= @user.last_name %></li>
+  <li><%= current_user.first_name %>&nbsp;<%= current_user.last_name %></li>
   <hr>
   <li>
   <%= link_to('Edit registration', edit_user_registration_path) %>

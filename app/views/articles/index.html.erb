@@ -9,7 +9,9 @@
 <div class="articles-list">
   <% @articles.reverse_each do |article| %>
     <div class="col-sm-12 col-md-9 col-md-offset-1 article-container">
+      <% if user_signed_in? %>
       <%= render 'article-controls', :article => article%>
+      <% end %>
       <h2 class="article-title"><%= article.title %></h2>
       <hr>
       <p class="article-date">Posted: <%= article.date_posted %></p>

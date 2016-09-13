@@ -47,7 +47,7 @@
               </ul>
           </li>
           <li>
-             <%= form_tag("/products/search", method: "get", class: "navbar-form navbar-right", role: "search") do %>
+             <%= form_tag("/articles", method: "get", class: "navbar-form navbar-right", role: "search") do %>
           <div class="form-group">
             <%= text_field_tag(:q, nil, class: "form-control", placeholder: "Search") %>
           </div>
@@ -59,8 +59,16 @@
     </div>
   </nav>
   <div class="wrapper">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+      <p class="alert alert-info">
+        <%= notice %>
+      </p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger">
+        <%= alert %>
+      </p>
+    <% end %>
     <%= yield %>
     <footer>
       <div>

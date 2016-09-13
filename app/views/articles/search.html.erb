@@ -1,0 +1,4 @@
+<h1><%=  @search_term.blank? ? "All articles" : "Article titles matching '#{@search_term}'" %></h1>
+  <div class="products-row">
+    <%= render @articles %>
+  </div>    
