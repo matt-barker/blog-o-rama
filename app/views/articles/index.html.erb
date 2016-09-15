@@ -1,29 +1,34 @@
 
-<div class="col-md-9 col-md-offset-1 intro-text">
-  <p>
-    Welcome to the blog-o-rama blog. This is the bloggiest blog that ever appeared
-    in the blogosphere!  
-  </p>
+<div class="col-md-9">
+  <div class="intro-text">
+    <p>
+      Welcome to the blog-o-rama blog. This is the bloggiest blog that ever appeared
+      in the blogosphere!  
+    </p>
+  </div>
 </div>
 <%= render 'sidebar' %>
 <div class="articles-list">
-  <% @articles.reverse_each do |article| %>
-    <div class="col-sm-12 col-md-9 col-md-offset-1 article-container">
-      <% if user_signed_in? %>
-      <%= render 'article-controls', :article => article%>
-      <% end %>
-      <h2 class="article-title"><%= article.title %></h2>
-      <hr>
-      <p class="article-date">Posted: <%= article.date_posted %></p>
-      <% if article.has_image? %>
-      <div class="article-image"><%= image_tag(article.image_url, class:"img-responsive") %></div>
-      <% end %>
-      <p class="article-body"><%= article.body[0,255] %></p>
-      <% if article.body.length > 255 %>
-      <p><%= button_to 'Continue reading article', article, :type =>"button", :class =>"btn btn-default show-article-button", :method => :get %></p>
-      <% end %>
-      <p><strong>Author: <%= article.author %></strong></p>
+  <% @articles.each do |article| %>
+    <div class="col-sm-12 col-md-9">
+      <div class="article-container">
+        <% if user_signed_in? %>
+        <%= render 'article-controls', :article => article%>
+        <% end %>
+        <h2 class="article-title"><%= article.title %></h2>
+        <hr>
+        <p class="article-date">Posted: <%= article.date_posted %></p>
+        <% if article.has_image? %>
+        <div class="article-image"><%= image_tag(article.image_url, class:"img-responsive") %></div>
+        <% end %>
+        <p class="article-body"><%= article.body[0,255] %></p>
+        <p><%= button_to 'Continue reading article', article, :type =>"button", :class =>"btn btn-default show-article-button", :method => :get %></p>
+        <p><strong>Author: <%= article.author %></strong></p>
+      </div>
     </div>
   <% end %>
   </div>
+  
+  <%= will_paginate @articles, renderer: BootstrapPagination::Rails, next_label: "Older >", previous_label: "< Newer", class: "col-xs-12 pagination-container" %>
+  
 <br>

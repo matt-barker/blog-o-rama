@@ -6,15 +6,16 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
+    @sidebar_articles = Article.order("date_posted DESC").first(5)
     if params[:q]
         @search_term = params[:q]
         if Rails.env == "development"
-          @articles = Article.where("title LIKE ?", "%#{@search_term}%")
+          @articles = Article.where("title LIKE ?", "%#{@search_term}%").order("date_posted DESC").paginate(:page => params[:page])
         else
-          @articles = Article.where("title ilike ?", "%#{@search_term}%")
+          @articles = Article.where("title ilike ?", "%#{@search_term}%").order("date_posted DESC").paginate(:page => params[:page])
         end
       else
-        @articles = Article.all
+        @articles = Article.order("date_posted DESC").paginate(:page => params[:page])
     end
     @user = current_user
   end
@@ -22,7 +23,9 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @sidebar_articles = Article.last(5).reverse_each
     @articles = Article
+    @comments = @article.comments.order("created_at DESC").paginate(:page => params[:page])
   end
 
   # GET /articles/new
@@ -43,7 +46,8 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-
+    @user = current_user
+    @article.author = @user.first_name + " " + @user.last_name
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }

@@ -1,6 +1,6 @@
 
 <%= render 'sidebar' %>
-<div class="col-sm-12 col-md-9 col-md-offset-1 article-container">
+<div class="col-sm-12 col-md-9 article-container">
   <% if user_signed_in? %>
   <%= render 'article-controls', :article => @article %>
   <% end %>
@@ -15,4 +15,6 @@
   <p><%= button_to 'Back', articles_path, :type =>"button", :class =>"btn btn-default show-article-button", :method => :get %></p>
   </button>
   <hr>
+  <%= render 'new_comment' %>
+  <%= render 'comments' %>
 </div>

@@ -1,10 +1,13 @@
-<div class="col-sm-12 col-md-2 sidebar-container">
-  <ul class="nav nav-pills nav-stacked">
-    <li role="presentation"><%= link_to new_article_path do %>
-    <i class="glyphicon glyphicon-plus"></i>New Article
-   <% end %></li><hr>
-   <li><h4>Latest Posts</h4></li>
-   <% @articles.last(3).reverse_each do |article| %>
-   <li role="presentation"><%= link_to article.title, article %></li>
-   <% end %>
+<div class="col-sm-12 col-md-3 sidebar-container">
+    <ul class="nav nav-pills nav-stacked">
+      <% if user_signed_in? %>
+      <li role="presentation"><%= link_to new_article_path do %>
+      <i class="glyphicon glyphicon-plus"></i>New Article
+     <% end %></li><hr><% end %>
+     <li><h4>Latest Posts</h4></li>
+     <% @sidebar_articles.each do |article| %>
+     <li role="presentation"><%= link_to article.title, article %></li>
+     <% end %>
+     </ul>
+
 </div>

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   get 'static_pages/contact'
 
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   root 'articles#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
