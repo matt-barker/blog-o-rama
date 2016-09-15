@@ -1,6 +1,6 @@
 <div class="col-sm-12 col-md-3 sidebar-container">
     <ul class="nav nav-pills nav-stacked">
-      <% if user_signed_in? %>
+      <% if user_signed_in? && (current_user.admin? || current_user.contributor?)%>
       <li role="presentation"><%= link_to new_article_path do %>
       <i class="glyphicon glyphicon-plus"></i>New Article
      <% end %></li><hr><% end %>

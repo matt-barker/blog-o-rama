@@ -20,7 +20,19 @@
     <%= f.label :last_name %>
     <%= f.text_field :last_name %>
   </div>
-
+  
+  <% if current_user.admin? %>
+  <div class="field">
+    <%= f.label :admin %>
+    <%= f.check_box :admin %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :contributor %>
+    <%= f.check_box :contributor %>
+  </div>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

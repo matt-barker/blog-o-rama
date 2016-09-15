@@ -7,9 +7,10 @@
     <li><%= link_to edit_article_path(article) do %>
         <i class="glyphicon glyphicon-pencil"> <span class="edit-text">Edit</span></i>
         <% end %></li>
+        <% if current_user.admin? %>
     <li><%= link_to article, method: :delete, data: { confirm: 'Are you sure?' } do %>
         <i class="glyphicon glyphicon-trash"> <span class="edit-text">Delete</span></i>
-        <% end %></li>
+        <% end %></li><% end %>
   </ul>
 </div>
 </span> 
